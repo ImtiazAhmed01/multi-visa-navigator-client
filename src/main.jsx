@@ -36,8 +36,8 @@ const router = createBrowserRouter([
       { path: "register", element: <Register /> },
       { path: "allvisas", element: <AllVisas /> },
       { path: "addvisa", element: <PrivateRoute><AddVisa /></PrivateRoute> },
-      { path: "my", element: <PrivateRoute><MyAddVisa /></PrivateRoute> },
-      { path: "my-visa-application", element: <PrivateRoute><MyVisaApplication /></PrivateRoute> },
+      { path: "myaddedvisa", element: <PrivateRoute><MyAddVisa /></PrivateRoute> },
+      { path: "myvisaapplication", element: <PrivateRoute><MyVisaApplication /></PrivateRoute> },
     ],
   },
 ]);
