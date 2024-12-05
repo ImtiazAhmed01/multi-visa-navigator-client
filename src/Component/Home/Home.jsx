@@ -4,6 +4,7 @@ import slider2Image from "../../../src/assets/analysis-data-process-target-busin
 import slider3Image from "../../../src/assets/man-using-virtual-touch-screen-260nw-2336775113.jpg"
 import slider4Image from "../../../src/assets/visa-application-approved-stamp-passport-260nw-2214866597.jpg"
 import WhyChooseUs from './WhyChooseUs';
+import VisaProcess from './VisaProcess';
 
 const Home = () => {
     return (
@@ -50,6 +51,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <VisaProcess></VisaProcess>
             <WhyChooseUs></WhyChooseUs>
         </div>
 

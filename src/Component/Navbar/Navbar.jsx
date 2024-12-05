@@ -19,12 +19,12 @@ const Navbar = () => {
     const links = (
         <>
             <li>
-                <NavLink to="/" activeClassName="active">
+                <NavLink to="/" activeclassname="active">
                     Home
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/allvisas" activeClassName="active">
+                <NavLink to="/allvisas" activeclassname="active">
                     All Visas
                 </NavLink>
             </li>
@@ -32,17 +32,17 @@ const Navbar = () => {
             {user && user.displayName && (
                 <>
                     <li>
-                        <NavLink to="/addvisa" activeClassName="active">
+                        <NavLink to="/addvisa" activeclassname="active">
                             Add Visa
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/myaddedvisa" activeClassName="active">
+                        <NavLink to="/myaddedvisa" activeclassname="active">
                             My Added Visa
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/myvisaapplication" activeClassName="active">
+                        <NavLink to="/myvisaapplication" activeclassname="active">
                             My Visa Application
                         </NavLink>
                     </li>
