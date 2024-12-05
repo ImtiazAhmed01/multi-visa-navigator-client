@@ -89,7 +89,7 @@ const Navbar = () => {
                     {/* <img src={logo} alt="Lingo Bingo Logo" className="w-8 h-8" /> */}
                     <NavLink
                         to="/"
-                        className="btn btn-ghost normal-case text-xl font-bold"
+                        className="btn btn-ghost normal-case md:text-xl font-bold"
                     >
                         Multi Visa Navigator
                     </NavLink>
