@@ -19,6 +19,7 @@ import MyVisaApplication from './Component/MyVisaApplication/MyVisaApplication';
 import Root from './Component/Root';
 import Login from './Component/Login/Login';
 import Register from './Component/Register/Register';
+import VisaDetails from './Component/VisaDetails';
 
 
 
@@ -34,13 +35,23 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      { path: "allvisas", element: <AllVisas /> },
+      {
+        path: "allvisas",
+        element: <AllVisas />,
+        loader: () => fetch('http://localhost:5000/getvisas'),
+      },
+      {
+        path: "visa/:id",
+        element: <VisaDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/getvisa/${params.id}`),
+      },
       { path: "addvisa", element: <PrivateRoute><AddVisa /></PrivateRoute> },
       { path: "myaddedvisa", element: <PrivateRoute><MyAddVisa /></PrivateRoute> },
       { path: "myvisaapplication", element: <PrivateRoute><MyVisaApplication /></PrivateRoute> },
     ],
   },
 ]);
+
 
 
 
