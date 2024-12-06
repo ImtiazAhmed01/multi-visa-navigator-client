@@ -30,13 +30,13 @@ const AddVisa = ({ addVisa }) => {
         } else {
             setVisa({ ...visa, [name]: value });
         }
-        console.log("Updated visa state:", { ...visa, [name]: value });
+        // console.log("Updated visa state:", { ...visa, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Final visa data:", visa);
-        addVisa(visa); // Add the visa to the database
+
+        // addVisa(visa); // Add the visa to the database
         Swal.fire("Success!", "Visa has been added successfully!", "success");
         setVisa({
             countryImage: "",
@@ -50,6 +50,20 @@ const AddVisa = ({ addVisa }) => {
             validity: "",
             applicationMethod: "",
         });
+        fetch('http://localhost:5000/addvisa', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Correct content type for JSON
+            },
+            body: JSON.stringify(visa), // Send the visa object as a JSON string
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Server response:", data);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
 
     return (
