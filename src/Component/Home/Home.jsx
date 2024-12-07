@@ -167,6 +167,7 @@ const Home = () => {
                 </div>
                 <LatestVisaSection darkMode={darkMode} />
 
+
                 {/* Other Sections */}
                 <VisaProcess darkMode={darkMode} />
                 <WhyChooseUs darkMode={darkMode} />

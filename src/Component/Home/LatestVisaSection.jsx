@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LatestVisaSection = ({ darkMode }) => {
     const [visas, setVisas] = useState([]);
@@ -54,9 +54,9 @@ const LatestVisaSection = ({ darkMode }) => {
                 ))}
             </div>
             <div className="text-center mt-4">
-                <button className="px-6 py-2 bg-green-500 text-white rounded">
+                <Link to='/allvisas' className="px-6 py-2 btn btn-success rounded">
                     See All Visas
-                </button>
+                </Link>
             </div>
         </div>
     );
