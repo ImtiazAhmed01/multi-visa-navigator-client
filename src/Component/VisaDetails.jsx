@@ -34,7 +34,7 @@ const VisaDetails = () => {
                     className="w-full h-64 object-cover rounded-lg mb-4"
                 />
                 <h1 className="text-3xl font-bold mb-2">{visa.countryName}</h1>
-                <p>Visa Type: {visa.visaType}</p>
+                <p><strong>Visa Type:</strong> {visa.visaType}</p>
                 <p>Processing Time: {visa.processingTime} days</p>
                 <p>Fee: ${visa.fee}</p>
                 <p>Validity: {visa.validity}</p>

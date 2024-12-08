@@ -14,7 +14,8 @@ const MyAddVisa = () => {
             navigate('/login'); // Redirect to login if no user is authenticated
             return;
         }
-        fetch(`http://localhost:5000/myvisas/${user.uid}`)
+
+        fetch(`http://localhost:5000/myvisas/${user.email}`)
             .then(async (response) => {
                 if (response.status === 401) {
                     navigate('/login'); // Redirect if unauthorized
@@ -66,14 +67,14 @@ const MyAddVisa = () => {
             <div className="visa-cards grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {visas.map(visa => (
                     <div key={visa._id} className="card shadow-lg p-4 bg-white rounded-lg">
-                        <img className="w-full h-40 object-cover rounded-t-lg" src={visa.countryImage} alt={visa.country} />
+                        <img className="w-full h-40 object-cover rounded-t-lg" src={visa.countryImage} alt={visa.countryName} />
                         <div className="card-body">
-                            <h2 className="font-bold text-lg">{visa.country}</h2>
-                            <p><strong>Visa Type:</strong> {visa.visa_type}</p>
-                            <p><strong>Processing Time:</strong> {visa.processing_time}</p>
+                            <h2 className="font-bold text-lg">{visa.countryName}</h2>
+                            <p><strong>Visa Type:</strong> {visa.visaType}</p>
+                            <p><strong>Processing Time:</strong> {visa.processingTime}</p>
                             <p><strong>Fee:</strong> ${visa.fee}</p>
                             <p><strong>Validity:</strong> {visa.validity}</p>
-                            <p><strong>Application Method:</strong> {visa.application_method}</p>
+                            <p><strong>Application Method:</strong> {visa.applicationMethod}</p>
                             <div className="buttons mt-4 flex justify-between">
                                 <button
                                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -105,12 +106,12 @@ const MyAddVisa = () => {
                                 handleUpdate(updatedVisa);
                             }}
                         >
-                            <input className="input mb-2 w-full" name="country" defaultValue={selectedVisa.country} placeholder="Country" required />
-                            <input className="input mb-2 w-full" name="visa_type" defaultValue={selectedVisa.visa_type} placeholder="Visa Type" required />
-                            <input className="input mb-2 w-full" name="processing_time" defaultValue={selectedVisa.processing_time} placeholder="Processing Time" required />
+                            <input className="input mb-2 w-full" name="countryName" defaultValue={selectedVisa.countryName} placeholder="Country Name" required />
+                            <input className="input mb-2 w-full" name="visaType" defaultValue={selectedVisa.visaType} placeholder="Visa Type" required />
+                            <input className="input mb-2 w-full" name="processingTime" defaultValue={selectedVisa.processingTime} placeholder="Processing Time" required />
                             <input className="input mb-2 w-full" name="fee" type="number" defaultValue={selectedVisa.fee} placeholder="Fee" required />
                             <input className="input mb-2 w-full" name="validity" defaultValue={selectedVisa.validity} placeholder="Validity" required />
-                            <input className="input mb-2 w-full" name="application_method" defaultValue={selectedVisa.application_method} placeholder="Application Method" required />
+                            <input className="input mb-2 w-full" name="applicationMethod" defaultValue={selectedVisa.applicationMethod} placeholder="Application Method" required />
                             <div className="flex justify-between mt-4">
                                 <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" type="submit">
                                     Submit
