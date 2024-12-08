@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import VisaCard from './VisaCard';
+import { ClipLoader } from 'react-spinners';
 
 const AllVisas = () => {
     const visas = useLoaderData();
     const [selectedVisaType, setSelectedVisaType] = useState(''); // state to hold selected visa type
+    const [loading, setLoading] = useState(true); // state for loading
+
+    // Simulate loading state (you can adjust based on actual data fetching process)
+    useEffect(() => {
+        if (visas) {
+            setLoading(false);
+        }
+    }, [visas]);
 
     // Handle filtering of visas based on the selected visa type
     const handleVisaTypeChange = (event) => {
@@ -43,57 +52,21 @@ const AllVisas = () => {
                 </select>
             </div>
 
-            {/* Container for Visa cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-16 py-6">
-                {filteredVisas.map((visa) => (
-                    <VisaCard key={visa._id} visa={visa} />
-                ))}
-            </div>
+            {/* Loading Spinner */}
+            {loading ? (
+                <div className="flex justify-center items-center py-10">
+                    <ClipLoader color="#36d7b7" loading={loading} size={50} />
+                </div>
+            ) : (
+                // Container for Visa cards
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-16 py-6">
+                    {filteredVisas.map((visa) => (
+                        <VisaCard key={visa._id} visa={visa} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
 
 export default AllVisas;
-
-
-
-
-// import React from 'react';
-// import { useLoaderData, Link } from 'react-router-dom';
-
-// const AllVisas = () => {
-//     const visas = useLoaderData();
-
-//     return (
-//         <div>
-//             <h1 className='text-5xl text-green-600 mb-4'>
-//                 Total Visas: {visas.length}
-//             </h1>
-
-//             {/* Grid Layout */}
-//             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-//                 {visas.map((visa) => (
-//                     <div
-//                         key={visa._id}
-//                         className="border p-4 rounded-lg shadow-md hover:shadow-xl transition duration-200 ease-in-out"
-//                     >
-//                         <h2 className="text-xl font-semibold text-gray-800">{visa.name}</h2>
-//                         <p className="text-gray-600">Country: {visa.country}</p>
-//                         <p className="text-gray-600">Visa Type: {visa.type}</p>
-//                         <p className="text-gray-600">Duration: {visa.duration}</p>
-
-//                         {/* See Details Button */}
-//                         <Link
-//                             to={`/visas/${visa._id}`}
-//                             className="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition"
-//                         >
-//                             See Details
-//                         </Link>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default AllVisas;
