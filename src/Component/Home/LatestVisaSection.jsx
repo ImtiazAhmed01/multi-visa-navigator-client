@@ -6,7 +6,7 @@ const LatestVisaSection = ({ darkMode }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:5000/getlatestvisas")
+        fetch("https://multi-visa-navigator-server.vercel.app/getlatestvisas")
             .then((res) => res.json())
             .then((data) => setVisas(data))
             .catch((error) => console.error("Error fetching visas:", error));

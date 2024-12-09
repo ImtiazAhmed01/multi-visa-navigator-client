@@ -1,8 +1,18 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Multi Visa Navigator
 
-Currently, two official plugins are available:
+Multi Visa Navigator a company that helps people to get the desired country's visa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Light/dark mode toggle
+- Users own visa watch process
+- Responsive
+- Saving data in database
+-
+
+
+## Live site link
+
+- Click [here](https://multi-visa-navigator.web.app)
+

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/authProvider";
-// import logo from "../../../public/favicon.ico";
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
@@ -86,7 +85,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    {/* <img src={logo} alt="Lingo Bingo Logo" className="w-8 h-8" /> */}
+
                     <NavLink
                         to="/"
                         className="btn btn-ghost normal-case md:text-xl font-bold"
@@ -99,17 +98,19 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end gap-4 flex items-center">
                     {user && user.photoURL && (
-                        <img
-                            src={user.photoURL}
-                            alt="User Avatar"
-                            className="w-8 h-8 rounded-full"
-                        />
+                        <div className="relative group">
+                            <img
+                                src={user.photoURL}
+                                alt="User Avatar"
+                                className="w-8 h-8 rounded-full"
+                            />
+                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black bg-opacity-75 py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                {user.displayName}
+                            </div>
+                        </div>
                     )}
                     {user && user.displayName ? (
                         <div className="flex items-center gap-4">
-                            <span className="text-sm font-medium">
-                                {user.displayName}
-                            </span>
                             <button
                                 className="btn btn-success"
                                 onClick={handleLogout}

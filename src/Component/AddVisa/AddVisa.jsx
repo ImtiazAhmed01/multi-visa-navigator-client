@@ -38,7 +38,7 @@
 //     const handleSubmit = (e) => {
 //         e.preventDefault();
 
-//         fetch("http://localhost:5000/addvisa", {
+//         fetch("https://multi-visa-navigator-server.vercel.app/addvisa", {
 //             method: "POST",
 //             headers: {
 //                 "Content-Type": "application/json",
@@ -307,7 +307,7 @@ const AddVisa = () => {
         // Include the user email in the visa data
         const visaWithUserEmail = { ...visa, userEmail: user?.email };
 
-        fetch("http://localhost:5000/addvisa", {
+        fetch("https://multi-visa-navigator-server.vercel.app/addvisa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -38,12 +38,12 @@ const router = createBrowserRouter([
       {
         path: "allvisas",
         element: <AllVisas />,
-        loader: () => fetch('http://localhost:5000/getvisas'),
+        loader: () => fetch('https://multi-visa-navigator-server.vercel.app/getvisas'),
       },
       {
         path: "visa/:id",
         element: <VisaDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/getvisa/${params.id}`),
+        loader: ({ params }) => fetch(`https://multi-visa-navigator-server.vercel.app/getvisa/${params.id}`),
       },
       { path: "addvisa", element: <PrivateRoute><AddVisa /></PrivateRoute> },
       { path: "myaddedvisa", element: <PrivateRoute><MyAddVisa /></PrivateRoute> },

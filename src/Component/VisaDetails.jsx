@@ -109,33 +109,36 @@
 // };
 
 // export default VisaDetails;
+
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const VisaDetails = () => {
-    const visa = useLoaderData(); // Get the visa details from the loader
+    const visa = useLoaderData();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
-    // Function to open the modal when the "Apply for Visa" button is clicked
     const handleApply = () => {
         setIsModalOpen(true);
+        setErrorMessage('');
+        setSuccessMessage('');
     };
 
-    // Function to close the modal
     const handleModalClose = () => {
         setIsModalOpen(false);
+        setErrorMessage('');
+        setSuccessMessage('');
     };
 
-    // Handle form submission to send the data to the server
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
+    const handleSubmit = async () => {
+        const form = document.getElementById('visaApplicationForm');
+        const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // Include Visa details along with the form data
         const applicationData = {
             ...data,
-            visaId: visa._id, // Send the visa ID
+            visaId: visa._id,
             countryName: visa.countryName,
             countryImage: visa.countryImage,
             visaType: visa.visaType,
@@ -147,7 +150,8 @@ const VisaDetails = () => {
         };
 
         try {
-            const response = await fetch('/applyvisa', {
+            console.log('Submitting application:', applicationData);
+            const response = await fetch('https://multi-visa-navigator-server.vercel.app/addapplication', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -156,13 +160,17 @@ const VisaDetails = () => {
             });
 
             if (!response.ok) {
+                const errorResponse = await response.json();
+                console.error('Error response:', errorResponse);
                 throw new Error('Failed to submit visa application');
             }
 
             const result = await response.json();
-            console.log('Application submitted:', result);
-            setIsModalOpen(false); // Close the modal after submission
+            console.log('Application submitted successfully:', result);
+            setSuccessMessage('Application submitted successfully!');
+            setIsModalOpen(false);
         } catch (error) {
+            setErrorMessage('Error submitting application. Please try again.');
             console.error('Error submitting application:', error);
         }
     };
@@ -197,7 +205,7 @@ const VisaDetails = () => {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-bold mb-4">Apply for the Visa</h2>
-                        <form onSubmit={handleSubmit}>
+                        <form id="visaApplicationForm">
                             <input
                                 type="email"
                                 name="email"
@@ -235,19 +243,29 @@ const VisaDetails = () => {
                                 required
                                 readOnly
                             />
-                            <div className="flex justify-end">
-                                <button
-                                    type="button"
-                                    className="btn btn-secondary mr-4"
-                                    onClick={handleModalClose}
-                                >
-                                    Cancel
-                                </button>
-                                <button type="submit" className="btn btn-primary">
-                                    Apply
-                                </button>
-                            </div>
+                            {errorMessage && (
+                                <p className="text-red-500 mb-4">{errorMessage}</p>
+                            )}
+                            {successMessage && (
+                                <p className="text-green-500 mb-4">{successMessage}</p>
+                            )}
                         </form>
+                        <div className="flex justify-end">
+                            <button
+                                type="button"
+                                className="btn btn-secondary mr-4"
+                                onClick={handleModalClose}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="button"
+                                className="btn btn-primary"
+                                onClick={handleSubmit} // Call handleSubmit on click
+                            >
+                                Apply
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

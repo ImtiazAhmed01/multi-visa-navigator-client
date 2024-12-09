@@ -24,7 +24,7 @@ const MyAddVisa = () => {
             return;
         }
         setLoading(true);
-        fetch(`http://localhost:5000/myvisas/${user.email}`)
+        fetch(`https://multi-visa-navigator-server.vercel.app/myvisas/${user.email}`)
             .then(response => {
                 if (!response.ok) {
                     if (response.status === 401) {
@@ -42,7 +42,7 @@ const MyAddVisa = () => {
     const handleDelete = (id) => {
         const updatedVisas = visas.filter(visa => visa._id !== id);
         setVisas(updatedVisas);
-        fetch(`http://localhost:5000/deletevisa/${id}`, { method: 'DELETE' })
+        fetch(`https://multi-visa-navigator-server.vercel.app/deletevisa/${id}`, { method: 'DELETE' })
             .then(response => {
                 if (!response.ok) {
                     setVisas(visas);
@@ -64,16 +64,18 @@ const MyAddVisa = () => {
 
     const handleUpdate = (event) => {
         event.preventDefault();
-        console.log('Updated Visa Data:', updatedVisa); // Debugging: Check the updated data
+        console.log('Updated Visa Data:', updatedVisa);
 
-        // Check for empty fields
-        const missingFields = Object.entries(updatedVisa).filter(([key, value]) => !value.trim());
+        const missingFields = Object.entries(updatedVisa).filter(([key, value]) => {
+            return typeof value === 'string' && !value.trim();
+        });
+
         if (missingFields.length > 0) {
             alert(`Missing required fields: ${missingFields.map(([key]) => key).join(', ')}`);
             return;
         }
 
-        fetch(`http://localhost:5000/updatevisa/${selectedVisa._id}`, {
+        fetch(`https://multi-visa-navigator-server.vercel.app/updatevisa/${selectedVisa._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedVisa),
@@ -96,6 +98,7 @@ const MyAddVisa = () => {
                 alert(`Failed to update visa. ${error.message}`);
             });
     };
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;

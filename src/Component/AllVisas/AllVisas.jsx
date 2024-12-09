@@ -5,27 +5,27 @@ import { ClipLoader } from 'react-spinners';
 
 const AllVisas = () => {
     const visas = useLoaderData();
-    const [selectedVisaType, setSelectedVisaType] = useState(''); // state to hold selected visa type
-    const [loading, setLoading] = useState(true); // state for loading
+    const [selectedVisaType, setSelectedVisaType] = useState('');
+    const [loading, setLoading] = useState(true);
 
-    // Simulate loading state (you can adjust based on actual data fetching process)
+
     useEffect(() => {
         if (visas) {
             setLoading(false);
         }
     }, [visas]);
 
-    // Handle filtering of visas based on the selected visa type
+
     const handleVisaTypeChange = (event) => {
         setSelectedVisaType(event.target.value);
     };
 
-    // Filter visas based on selected visa type
+
     const filteredVisas = selectedVisaType
         ? visas.filter(visa => visa.visaType === selectedVisaType)
         : visas;
 
-    // Get unique visa types for the dropdown
+
     const visaTypes = [...new Set(visas.map(visa => visa.visaType))];
 
     return (
