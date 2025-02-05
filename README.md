@@ -29,7 +29,9 @@ Multi Visa Navigator is a web application designed to streamline visa applicatio
 
 ---
 
-## 🛠 Installation
+🚀 **Live Site:** [Multi Visa Navigator](https://multi-visa-navigator.web.app/)
+
+## 🛠 To locally run
 
 1. Clone the repository:
    ```sh
@@ -59,10 +61,17 @@ Multi Visa Navigator is a web application designed to streamline visa applicatio
    VITE_appId=YOUR_APP_ID
    ```
 
-4. Start the development server:
-   ```sh
-   npm run dev
-   ```
+4. Run:
+```
+ ### Running Locally
+```sh
+npm run dev
+
+
+### Building for Production
+sh
+npm run build
+```
 
 ---
 
@@ -104,24 +113,7 @@ Multi Visa Navigator is a web application designed to streamline visa applicatio
 - tailwindcss: ^3.4.16,  
 - vite: ^6.0.1 
 
-### Running Locally
-```sh
-npm run dev
-```
 
-### Building for Production
-```sh
-npm run build
-```
-
-### Linting Code
-```sh
-npm run lint
-```
-
----
-
-🚀 **Live Site:** [Multi Visa Navigator](https://multi-visa-navigator.web.app/)
 
 ---
 
