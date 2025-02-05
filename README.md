@@ -125,14 +125,5 @@ npm run lint
 
 ---
 
-## 🤝 Contributors
-
-- **Your Name** – https://github.com/yourusername
-
-Want to contribute? Feel free to submit a pull request! 🚀
-
----
-
-
 
 
