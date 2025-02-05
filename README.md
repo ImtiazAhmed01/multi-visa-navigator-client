@@ -19,9 +19,10 @@ Multi Visa Navigator a company that helps people to get the desired country's vi
 
 # 🌍 Multi Visa Navigator
 
-Multi Visa Navigator is a web application designed to help individuals efficiently track their visa applications. The platform provides a seamless visa tracking process, supports dark/light mode, and securely stores data in a database.
+## Project overview
+Multi Visa Navigator is a web application designed to streamline visa application tracking, allowing users to efficiently monitor their application statuses in one place. The platform offers a user-friendly dashboard, supports dark/light mode for enhanced usability, and ensures secure data storage in a database for easy access and privacy protection.
 
-![Multi Visa Navigator Screenshot](https://via.placeholder.com/800x400.png?text=Project+Screenshot)  
+![Multi Visa Navigator Screenshot]([https://via.placeholder.com/800x400.png?text=Project+Screenshot](https://i.ibb.co.com/pjzgNkff/Screenshot-42.png))  
 🚀 **Live Site:** [Multi Visa Navigator](https://multi-visa-navigator.web.app/)
 
 ---
