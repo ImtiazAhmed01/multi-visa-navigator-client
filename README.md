@@ -31,7 +31,7 @@ Multi Visa Navigator is a web application designed to streamline visa applicatio
 
 🚀 **Live Site:** [Multi Visa Navigator](https://multi-visa-navigator.web.app/)
 
-## 🛠 To locally run
+## 🛠 To run locally
 
 1. Clone the repository:
    ```sh
