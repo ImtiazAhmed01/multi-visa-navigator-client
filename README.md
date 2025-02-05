@@ -22,8 +22,7 @@ Multi Visa Navigator a company that helps people to get the desired country's vi
 ## Project overview
 Multi Visa Navigator is a web application designed to streamline visa application tracking, allowing users to efficiently monitor their application statuses in one place. The platform offers a user-friendly dashboard, supports dark/light mode for enhanced usability, and ensures secure data storage in a database for easy access and privacy protection.
 
-![Multi Visa Navigator Screenshot](https://i.ibb.co.com/pjzgNkff/Screenshot-42.png) 
-🚀 **Live Site:** [Multi Visa Navigator](https://multi-visa-navigator.web.app/)
+
 
 ---
 
@@ -95,28 +94,32 @@ Multi Visa Navigator is a web application designed to streamline visa applicatio
 
 ## 📦 Dependencies
 
-### Core Libraries:
-- [`react`](https://react.dev/) – UI framework.
-- [`react-router-dom`](https://reactrouter.com/) – Routing.
-- [`firebase`](https://firebase.google.com/) – Authentication & database.
-
-### UI & Functionality:
-- [`react-toastify`](https://fkhadra.github.io/react-toastify/) – Toast notifications.
-- [`sweetalert2`](https://sweetalert2.github.io/) – Modern alerts.
-- [`react-tooltip`](https://www.npmjs.com/package/react-tooltip) – Tooltip support.
-- [`react-spinners`](https://www.npmjs.com/package/react-spinners) – Loading animations.
-
-### Styling & Utility:
-- [`tailwindcss`](https://tailwindcss.com/) – Utility-first CSS.
-- [`daisyUI`](https://daisyui.com/) – Pre-built UI components.
-
-### Development Tools:
-- [`vite`](https://vitejs.dev/) – Build tool.
-- [`eslint`](https://eslint.org/) – Linting.
-
----
-
-## 🛠 Development
+- firebase: ^11.0.2,  
+- react: ^18.3.1,  
+- react-dom: ^18.3.1,  
+- react-hot-toast: ^2.4.1,  
+- react-router: ^7.0.2,  
+- react-router-dom: ^7.0.2,  
+- react-simple-typewriter: ^5.0.1,  
+- react-spinners: ^0.15.0,  
+- react-toastify: ^10.0.6,  
+- react-tooltip: ^5.28.0,  
+- sweetalert2: ^11.14.5  
+## 📦 Dev Dependencies
+- @eslint/js: ^9.15.0,  
+- @types/react: ^18.3.12,  
+- @types/react-dom: ^18.3.1,  
+- @vitejs/plugin-react: ^4.3.4,
+- autoprefixer: ^10.4.20,  
+- daisyui: ^4.12.14,  
+- eslint: ^9.15.0,  
+- eslint-plugin-react: ^7.37.2,  
+- eslint-plugin-react-hooks: ^5.0.0,  
+- eslint-plugin-react-refresh: ^0.4.14,  
+- globals: ^15.12.0,  
+- postcss: ^8.4.49,  
+- tailwindcss: ^3.4.16,  
+- vite: ^6.0.1 
 
 ### Running Locally
 ```sh
@@ -135,17 +138,18 @@ npm run lint
 
 ---
 
+🚀 **Live Site:** [Multi Visa Navigator](https://multi-visa-navigator.web.app/)
+
+---
+
 ## 🤝 Contributors
 
-- **Your Name** – [GitHub](https://github.com/yourusername)
+- **Your Name** – https://github.com/yourusername
 
 Want to contribute? Feel free to submit a pull request! 🚀
 
 ---
 
-## 📜 License
 
-This project is licensed under the **MIT License**. See the [`LICENSE`](LICENSE) file for details.
-```
 
 
