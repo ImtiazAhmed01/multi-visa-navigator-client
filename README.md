@@ -61,15 +61,13 @@ Multi Visa Navigator is a web application designed to streamline visa applicatio
    VITE_appId=YOUR_APP_ID
    ```
 
-4. Run:
-```
- ### Running Locally
+4. Running Locally
 ```sh
 npm run dev
+```
 
-
-### Building for Production
-sh
+5. Building for Production
+```sh
 npm run build
 ```
 
